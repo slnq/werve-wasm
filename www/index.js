@@ -1,4 +1,4 @@
-import { memory } from "../pkg/wasm_game_of_life_bg";
+import { memory } from "../pkg/wasm_game_of_life_bg.wasm";
 import { ElectricField, init_panic_hook, main } from "../pkg";
 import { get_mouse_coordinate } from "./input";
 

@@ -26,12 +26,13 @@ let cachedTextDecoder = new lTextDecoder('utf-8', { ignoreBOM: true, fatal: true
 
 cachedTextDecoder.decode();
 
-let cachegetUint8Memory0 = null;
+let cachedUint8Memory0 = new Uint8Array();
+
 function getUint8Memory0() {
-    if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
-        cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+    if (cachedUint8Memory0.byteLength === 0) {
+        cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
     }
-    return cachegetUint8Memory0;
+    return cachedUint8Memory0;
 }
 
 function getStringFromWasm0(ptr, len) {
@@ -123,12 +124,13 @@ function passStringToWasm0(arg, malloc, realloc) {
     return ptr;
 }
 
-let cachegetInt32Memory0 = null;
+let cachedInt32Memory0 = new Int32Array();
+
 function getInt32Memory0() {
-    if (cachegetInt32Memory0 === null || cachegetInt32Memory0.buffer !== wasm.memory.buffer) {
-        cachegetInt32Memory0 = new Int32Array(wasm.memory.buffer);
+    if (cachedInt32Memory0.byteLength === 0) {
+        cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
     }
-    return cachegetInt32Memory0;
+    return cachedInt32Memory0;
 }
 /**
 */
@@ -237,12 +239,12 @@ export class ElectricField {
     }
 }
 
-export function __wbg_new_693216e109162396() {
+export function __wbg_new_abda76e883ba8a5f() {
     const ret = new Error();
     return addHeapObject(ret);
 };
 
-export function __wbg_stack_0ddaca5d1abfb52f(arg0, arg1) {
+export function __wbg_stack_658279fe44541cf6(arg0, arg1) {
     const ret = getObject(arg1).stack;
     const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
@@ -250,7 +252,7 @@ export function __wbg_stack_0ddaca5d1abfb52f(arg0, arg1) {
     getInt32Memory0()[arg0 / 4 + 0] = ptr0;
 };
 
-export function __wbg_error_09919627ac0992f5(arg0, arg1) {
+export function __wbg_error_f851667af71bcfc6(arg0, arg1) {
     try {
         console.error(getStringFromWasm0(arg0, arg1));
     } finally {
