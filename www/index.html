@@ -2,24 +2,85 @@
 <html>
   <body>
     <style>
-    body{
-      margin-left: 57ch;
-      margin-top: 8ch;
-    }
+/* body要素の設定 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+/* control要素の設定 */
+#control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* fps要素の設定 */
+#fps {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* radioボタンとlabelの設定 */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+label {
+  font-size: 14px;
+}
+
+/* rangeスライダーとcharge valueの設定 */
+input[type="range"] {
+  width: 200px;
+  margin-top: 10px;
+}
+
+#rangev {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+/* canvas要素の設定 */
+canvas {
+  border: 1px solid black;
+  width: 90vmin;
+  height: auto;
+  margin-top: 20px;
+}
+
+@media (orientation: portrait) {
+	body {flex-direction: column;}
+	#control {flex-direction: row;}
+}
     </style>
-    <span id="fps"></span>fps
-    <input type="radio" name="input_radio" id="install" value="install" checked>
-    <label for="install">install</label>
-    <input type="radio" name="input_radio" id="remove" value="remove">
-    <label for="remove">remove</label>
-    <input type="radio" name="input_radio" id="control" value="control">
-    <label for="control">control</label>
-    <input type="radio" name="input_radio" id="fix" value="fix">
-    <label for="fix">fix</label>
-    <input type="range" id="range" value="10" min="-39" max="40" step="1">
-    <span id="rangev"></span>
-    charge value
-    <br>
+	<span id="control">
+    	<span id="fps"></span>fps
+    	<input type="radio" name="input_radio" id="install" value="install" checked>
+    	<label for="install">install</label>
+    	<input type="radio" name="input_radio" id="remove" value="remove">
+    	<label for="remove">remove</label>
+    	<input type="radio" name="input_radio" id="control" value="control">
+    	<label for="control">control</label>
+    	<input type="radio" name="input_radio" id="fix" value="fix">
+    	<label for="fix">fix</label>
+    	<input type="range" id="range" value="10" min="-39" max="40" step="1">
+    	<span id="rangev"></span>
+    	charge value
+	</span>
     <canvas id="canvas"></canvas>
     <script src="./bootstrap.js"></script>
   </body>
