@@ -3,12 +3,6 @@
   <body>
     <style>
 
-html,
-body:not(#range):not(canvas) {
-  overflow: hidden;
-  touch-action: pinch-zoom;
-}
-
 /* body要素の設定 */
 body {
   display: flex;
@@ -75,18 +69,17 @@ canvas {
 }
     </style>
 	<span id="controls">
-    	<span id="fps"></span>fps
-    	<input type="radio" name="input_radio" id="install" value="install" checked>
+    	<span><span id="fps"></span>fps</span>
     	<label for="install">install</label>
-    	<input type="radio" name="input_radio" id="remove" value="remove">
+    	<input type="radio" name="input_radio" id="install" value="install" checked>
     	<label for="remove">remove</label>
-    	<input type="radio" name="input_radio" id="control" value="control">
+    	<input type="radio" name="input_radio" id="remove" value="remove">
     	<label for="control">control</label>
-    	<input type="radio" name="input_radio" id="fix" value="fix">
+    	<input type="radio" name="input_radio" id="control" value="control">
     	<label for="fix">fix</label>
+    	<input type="radio" name="input_radio" id="fix" value="fix">
     	<input type="range" id="range" value="10" min="-39" max="40" step="1">
-    	<span id="rangev"></span>
-    	charge value
+    	<span>charge value: <span id="rangev"></span></span>
 	</span>
     <canvas id="canvas"></canvas>
     <script src="./bootstrap.js"></script>
